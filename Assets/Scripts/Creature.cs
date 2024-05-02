@@ -452,4 +452,14 @@ public class Creature : MonoBehaviour
         }
         reproductionEnergy = 0;
     }
+
+    public void LoadDataFromSave(GenerationManager.AgentDataToSave data)
+    {
+        energy = data.energy;
+        interactionCounter = data.interactionCounter;
+        reproductionEnergy = data.reproductionEnergy;
+        timeAlive = data.timeAlive;
+
+        // ... Add loading for any other properties you need here ...  
+    }
 }

@@ -325,12 +325,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d35a0e1742b144990f1317092bb050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creature: {fileID: 0}
+  creature: {fileID: 3575001814896929549}
   distanceTraveled: 0
   energy: 0
   interactionCounter: 0
   reproductionEnergy: 0
   timeAlive: 0
+  distanceTracker: {fileID: 3061642104649663920}
 --- !u!1 &7883028876875598555
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ public class AgentController : MonoBehaviour
     private void DeselectAgentIfDestroyed()
     {
         // Check if the selected agent's game object has been destroyed
-        if (SelectedAgentData != null && SelectedAgentData.gameObject == null)
+        if (SelectedAgentData != null && SelectedAgentData.gameObject != null)
         {
             Debug.Log("Selected agent has been destroyed. Deselecting...");
             DeselectAgent();

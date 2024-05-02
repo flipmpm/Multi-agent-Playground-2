@@ -12,30 +12,38 @@ public class AgentData : MonoBehaviour
     public float timeAlive;
 
     // Reference to the DistanceTracker script
-    private DistanceTracker distanceTracker;
+    public DistanceTracker distanceTracker;
 
     // Awake is called when the script instance is being loaded
     void Awake()
     {
-        // Attempt to get the Creature component from the same GameObject
-        creature = GetComponent<Creature>();
+        // If Creature is not already assigned, try to find it 
+        if (creature == null)
+        {
+            creature = GetComponent<Creature>();
+        }
         if (creature == null)
         {
             Debug.LogWarning("Creature component not found on the same GameObject as AgentData.");
         }
 
-        // Attempt to get the DistanceTracker component from the same GameObject
-        distanceTracker = GetComponent<DistanceTracker>();
+        // If DistanceTracker is not already assigned, try to find it
+        if (distanceTracker == null)
+        {
+            distanceTracker = GetComponent<DistanceTracker>();
+        }
         if (distanceTracker == null)
         {
             Debug.LogWarning("DistanceTracker component not found on the same GameObject as AgentData.");
         }
+
+        
     }
 
     // Method to update the data from the Creature and DistanceTracker scripts
     public void UpdateData()
     {
-        Debug.Log("UpdateData() called.");
+        //Debug.Log("UpdateData() called.");
 
         if (creature != null)
         {
@@ -54,10 +62,15 @@ public class AgentData : MonoBehaviour
         {
             // Extract data from the DistanceTracker script
             distanceTraveled = distanceTracker.totalDistance;
+            //Debug.Log("distanceTraveled value is: " + distanceTraveled);
         }
         else
         {
             Debug.LogWarning("DistanceTracker reference is null. Make sure to set it before updating data.");
         }
     }
+
+    // Excluding agentPrefab from serialization
+    [System.NonSerialized]
+    public GameObject agentPrefab;
 }
